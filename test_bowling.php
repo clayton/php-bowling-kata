@@ -29,7 +29,7 @@
     $score = 0;
 
     for ($i=0; $i < count($rolls); $i++) {
-      if ($rolls[$i] == 10) {
+      if (is_strike($rolls, $i)) {
         $score += $rolls[$i] + ($rolls[$i + 1] + $rolls[$i + 2]);
       }else{
         $score += $rolls[$i];
@@ -37,6 +37,11 @@
     }
 
     return $score;
+  }
+
+  function is_strike($rolls, $index)
+  {
+    return $rolls[$index] == 10;
   }
 
 ?>
