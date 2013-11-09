@@ -26,7 +26,17 @@
 
   function score($rolls)
   {
-    return array_sum($rolls);
+    $score = 0;
+
+    for ($i=0; $i < count($rolls); $i++) {
+      if ($rolls[$i] == 10) {
+        $score += $rolls[$i] + ($rolls[$i + 1] + $rolls[$i + 2]);
+      }else{
+        $score += $rolls[$i];
+      }
+    }
+
+    return $score;
   }
 
 ?>
