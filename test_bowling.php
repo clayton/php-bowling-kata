@@ -9,7 +9,7 @@
 
   function score($rolls)
   {
-
+    return 0;
   }
 
 ?>
