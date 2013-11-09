@@ -14,7 +14,7 @@
 
   function score($rolls)
   {
-    return 0;
+    return array_sum($rolls);
   }
 
 ?>
