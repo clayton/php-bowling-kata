@@ -30,7 +30,7 @@
 
     for ($i=0; $i < count($rolls); $i++) {
       if (is_strike($rolls, $i)) {
-        $score += $rolls[$i] + ($rolls[$i + 1] + $rolls[$i + 2]);
+        $score += $rolls[$i] + strike_bonus($rolls, $i);
       }else{
         $score += $rolls[$i];
       }
@@ -42,6 +42,11 @@
   function is_strike($rolls, $index)
   {
     return $rolls[$index] == 10;
+  }
+
+  function strike_bonus($rolls, $index)
+  {
+    return ($rolls[$index + 1] + $rolls[$index + 2]);
   }
 
 ?>
