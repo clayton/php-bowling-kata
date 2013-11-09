@@ -10,6 +10,18 @@
     {
       $this->assertEquals(score([1,1,1,1,1,1,1,1,1,1]),10);
     }
+
+    public function test_getting_a_strike()
+    {
+      // Frame 1, ball 1: 10 pins (strike)
+      // Frame 2, ball 1: 3 pins
+      // Frame 2, ball 2: 6 pins
+      // The total score from these throws is:
+      // Frame one: 10 + (3 + 6) = 19 (Strike Bonus)
+      // Frame two: 3 + 6 = 9
+      // TOTAL = 28
+      $this->assertEquals(score([10,3,6]),28);
+    }
   }
 
   function score($rolls)
