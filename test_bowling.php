@@ -27,6 +27,20 @@
     {
       $this->assertEquals(score([10,10,10,10,10,10,10,10,10,10,10,10,]),300);
     }
+
+    public function test_getting_a_spare()
+    {
+      // Frame 1, ball 1: 7 pins
+      // Frame 1, ball 2: 3 pins (spare)
+      // Frame 2, ball 1: 4 pins
+      // Frame 2, ball 2: 2 pins
+      // The total score from these throws is:
+      // Frame one: 7 + 3 + 4 (bonus) = 14
+      // Frame two: 4 + 2 = 6
+      // TOTAL = 20
+
+      $this->assertEquals(score([7,3,4,2]),20);
+    }
   }
 
   function score($rolls)
