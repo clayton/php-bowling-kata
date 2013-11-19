@@ -49,7 +49,7 @@
 
     for ($i=0; $i < count($rolls); $i++) {
       if (is_strike($rolls, $i)) {
-        $score += $rolls[$i] + strike_bonus($rolls, $i);
+        $score += 10 + strike_bonus($rolls, $i);
       }elseif (is_spare($rolls, $i)){
         $score += 10 + spare_bonus($rolls, $i);
         $i++;
