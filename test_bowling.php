@@ -50,6 +50,9 @@
     for ($i=0; $i < count($rolls); $i++) {
       if (is_strike($rolls, $i)) {
         $score += $rolls[$i] + strike_bonus($rolls, $i);
+      }elseif (($rolls[$i] + $rolls[$i + 1]) == 10){
+        $score += 10 + $rolls[$i + 2];
+        $i++;
       }else{
         $score += $rolls[$i];
       }
