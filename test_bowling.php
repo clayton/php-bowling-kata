@@ -1,7 +1,7 @@
 <?php
 
   class TestBowling extends PHPUnit_Framework_TestCase{
-    public function test_all_gutter_balls()
+    public function test_all_gutter_balls_should_be_no_score()
     {
       $this->assertEquals(score([0]),0);
     }
@@ -11,7 +11,7 @@
       $this->assertEquals(score([1,1,1,1,1,1,1,1,1,1]),10);
     }
 
-    public function test_getting_a_strike()
+    public function test_getting_a_strike_should_award_strike_bonus()
     {
       // Frame 1, ball 1: 10 pins (strike)
       // Frame 2, ball 1: 3 pins
@@ -23,12 +23,12 @@
       $this->assertEquals(score([10,3,6]),28);
     }
 
-    public function test_getting_all_strikes()
+    public function test_getting_all_strikes_is_a_perfect_game()
     {
       $this->assertEquals(score([10,10,10,10,10,10,10,10,10,10,10,10,]),300);
     }
 
-    public function test_getting_a_spare()
+    public function test_getting_a_spare_should_award_spare_bonus()
     {
       // Frame 1, ball 1: 7 pins
       // Frame 1, ball 2: 3 pins (spare)
