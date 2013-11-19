@@ -51,7 +51,7 @@
       if (is_strike($rolls, $i)) {
         $score += $rolls[$i] + strike_bonus($rolls, $i);
       }elseif (is_spare($rolls, $i)){
-        $score += 10 + $rolls[$i + 2];
+        $score += 10 + spare_bonus($rolls, $i);
         $i++;
       }else{
         $score += $rolls[$i];
@@ -59,6 +59,11 @@
     }
 
     return $score;
+  }
+
+  function spare_bonus($rolls, $index)
+  {
+    return $rolls[$index + 2];
   }
 
   function is_strike($rolls, $index)
