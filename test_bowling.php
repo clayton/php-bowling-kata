@@ -50,7 +50,7 @@
     for ($i=0; $i < count($rolls); $i++) {
       if (is_strike($rolls, $i)) {
         $score += $rolls[$i] + strike_bonus($rolls, $i);
-      }elseif (($rolls[$i] + $rolls[$i + 1]) == 10){
+      }elseif (is_spare($rolls, $i)){
         $score += 10 + $rolls[$i + 2];
         $i++;
       }else{
@@ -64,6 +64,11 @@
   function is_strike($rolls, $index)
   {
     return $rolls[$index] == 10;
+  }
+
+  function is_spare($rolls, $index)
+  {
+    return ($rolls[$index] + $rolls[$index + 1]) == 10;
   }
 
   function strike_bonus($rolls, $index)
