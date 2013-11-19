@@ -22,6 +22,11 @@
       // TOTAL = 28
       $this->assertEquals(score([10,3,6]),28);
     }
+
+    public function test_getting_all_strikes()
+    {
+      $this->assertEquals(score([10,10,10,10,10,10,10,10,10,10,10,10,]),300);
+    }
   }
 
   function score($rolls)
@@ -46,7 +51,9 @@
 
   function strike_bonus($rolls, $index)
   {
-    return ($rolls[$index + 1] + $rolls[$index + 2]);
+    if ($index < 9){
+      return ($rolls[$index + 1] + $rolls[$index + 2]);
+    }
   }
 
 ?>
